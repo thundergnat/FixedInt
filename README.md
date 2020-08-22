@@ -39,7 +39,7 @@ An implication of that is that classes that **do** implement a STORE method can 
 
 The only way to instantiate a class in a scalar that won't get overwritten when STOREed to is to use an unsigiled variable.
 
-The FixedInt module allows creating and working with **any** sized fixed size Integer. Not only the "standard" sizes: 8, 16, 32, 64, etc., but also: 11, 25, 103, whatever. Once instantiated, it can be treated like any other varible. You can add to it, subtract from it, multiply, divide, whatever; the value stored in the varible will alway stay the specified bit size. Any excesses will "roll over" the value. Works correctly for any standard bitwise or arithmatic operator, though you must remember to assign to the varible to get the fixed sized properties.
+The FixedInt module allows creating and working with **any** sized fixed size Integer. Not only the "standard" sizes: 8, 16, 32, 64, etc., but also: 11, 25, 103, whatever. Once instantiated, it can be treated like any other variable. You can add to it, subtract from it, multiply, divide, whatever; the value stored in the variable will alway stay the specified bit size. Any excesses will "roll over" the value. Works correctly for any standard bitwise or arithmatic operator, though you must remember to assign to the variable to get the fixed sized properties.
 
 Provides some bit-wise operators that don't make sense for non-fixed size integers. Provides a few "format" operators that return a formatted IntStr; useful for display but also directly usable as an integer value.
 
@@ -109,7 +109,8 @@ Twos complement. A "negated" integer.
 Treats the fixed size unsigned integer as a signed integer, returns negative numbers for FixedInts with a set most significant bit.
 
 ```raku
-    say fixedint.signed # (-12)
+    say fixedint        # 244
+    say fixedint.signed # -12
 ```
 
 ### .bin
