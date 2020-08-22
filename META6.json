@@ -1,0 +1,17 @@
+{
+    "perl"          : "6",
+    "name"          : "FixedInt",
+    "version"       : "0.0.1",
+    "description"   : "Fixed size unsigned integers",
+    "authors"       : [ "Steve Schulze (thundergnat)" ],
+    "provides"      : { "FixedInt" : "lib/FixedInt.rakumod" },
+    "depends"       : [ ],
+    "build-depends" : [ ],
+    "test-depends"  : [ ],
+    "license"       : "Artistic-2.0",
+    "resources"     : [ ],
+    "source-type"   : "git",
+    "source-url"    : "git://github.com/thundergnat/FixedInt.git",
+    "tags"          : [ "UInt", "Int8", "Int16", "Int32", "Int64" ]
+}
+
