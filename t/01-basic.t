@@ -16,7 +16,7 @@ is(foo.=C1, 127, '8 bit ones complement ok');
 is(foo.=C2, 129, '8 bit twos complement ok');
 is(foo.signed, -127, '8 bit signed ok');
 is(foo.bin, "0b10000001", '8 bit binary IntStr ok');
-is(foo.oct, "0o0201", '8 bit octal IntStr ok');
+is(foo.oct, "0o201", '8 bit octal IntStr ok');
 is(foo.hex, "0x81", '8 bit hex IntStr ok');
 
 
@@ -33,7 +33,7 @@ is(bar.=C1, 523391, '19 bit ones complement ok');
 is(bar.C2, 897, '19 bit twos complement ok');
 is(bar.signed, -897, '19 bit signed ok');
 is(bar.bin, "0b1111111110001111111", '19 bit binary IntStr ok');
-is(bar.oct, "0o001776177", '19 bit octal IntStr ok');
+is(bar.oct, "0o1776177", '19 bit octal IntStr ok');
 is(bar.hex, "0x7FC7F", '19 bit hex IntStr ok');
 
 done-testing;

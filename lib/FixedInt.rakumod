@@ -1,4 +1,4 @@
-unit class FixedInt:ver<0.0.1>;
+unit class FixedInt:ver<0.0.1>:auth<github:thundergnat>;
 has $!var handles <Str FETCH Numeric gist> = 0;
 has $!bits;
 has $!mask;
@@ -30,10 +30,10 @@ method signed {
 method bin { "0b{$!var.Str.fmt('%0' ~ $!bits ~ 'b')}" }
 
 # return an octal formatted IntStr
-method oct { "0o{$!var.Str.fmt('%0' ~ $!bits div 2 ~ 'o')}" }
+method oct { "0o{$!var.Str.fmt('%0' ~ ceiling($!bits / 3) ~ 'o')}" }
 
 # return a hex formatted IntStr
-method hex { "0x{$!var.Str.fmt('%0' ~ $!bits div 4 ~ 'X')}" }
+method hex { "0x{$!var.Str.fmt('%0' ~ ceiling($!bits / 4) ~ 'X')}" }
 
 
 
