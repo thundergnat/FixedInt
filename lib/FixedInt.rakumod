@@ -134,7 +134,7 @@ Specify the number of bits. May be any positive integer. Defaults to 32. Accepts
 Rotate right by the given number of bits
 =begin code :lang<raku>
     # before 00000011 (3)
-    fixedint.ror(1);
+    fixedint.=ror(1);
     # after 10000001  (129)
 =end code
 
@@ -144,7 +144,7 @@ Rotate left by the given number of bits
 
 =begin code :lang<raku>
     # before 10000001 (129)
-    fixedint.rol(3);
+    fixedint.=rol(3);
     # after 00001100 (12)
 =end code
 
@@ -154,7 +154,7 @@ Ones complement. Every bit is negated.
 
 =begin code :lang<raku>
     # before 00001100 (12)
-    fixedint.C1;
+    fixedint.=C1;
     # after 11110011  (243)
 =end code
 
@@ -164,7 +164,7 @@ Twos complement. A "negated" integer.
 
 =begin code :lang<raku>
     # before 00001100 (12)
-    fixedint.C2;
+    fixedint.=C2;
     # after 11110100 (244)
 =end code
 

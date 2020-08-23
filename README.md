@@ -70,7 +70,7 @@ Rotate right by the given number of bits
 
 ```raku
     # before 00000011 (3)
-    fixedint.ror(1);
+    fixedint.=ror(1);
     # after 10000001  (129)
 ```
 
@@ -80,7 +80,7 @@ Rotate left by the given number of bits
 
 ```raku
     # before 10000001 (129)
-    fixedint.rol(3);
+    fixedint.=rol(3);
     # after 00001100 (12)
 ```
 
@@ -90,7 +90,7 @@ Ones complement. Every bit is negated.
 
 ```raku
     # before 00001100 (12)
-    fixedint.C1;
+    fixedint.=C1;
     # after 11110011  (243)
 ```
 
@@ -100,7 +100,7 @@ Twos complement. A "negated" integer.
 
 ```raku
     # before 00001100 (12)
-    fixedint.C2;
+    fixedint.=C2;
     # after 11110100 (244)
 ```
 
