@@ -1,4 +1,4 @@
-unit class FixedInt:ver<0.0.1>:auth<github:thundergnat>;
+unit class FixedInt:ver<0.0.3>:auth<github:thundergnat>;
 has $!var handles <Str FETCH Numeric gist> = 0;
 has $!bits;
 has $!mask;
@@ -86,8 +86,23 @@ not be held in a $ sigiled variable. (Well, they B<can>, they just won't work
 correctly. The first time you try to store a new value, the entire class
 instance will be overwritten and disappear.)
 
-The only way to instantiate a class in a scalar that won't get overwritten when
-STOREed to is to use an unsigiled variable.
+There are two work-arounds. One is to use an unsigiled variable. Unsigiled
+variables have no preconception of what may or may not be allowed, so don't
+override a STORE method. They work well, but if you really want a $ sigiled
+container, your only real option is to fake it using a constant term (rather
+than a variable.)
+
+=begin code :lang<raku>
+
+my \int32 = FixedInt.new; # unsigiled constant
+
+# or
+
+constant term:<$int32> = FixedInt.new; # "sigiled" constant term
+
+# looks like a variable but is really a constant term
+
+=end code
 
 The FixedInt module allows creating and working with B<any> sized fixed size
 Integer. Not only the "standard" sizes: 8, 16, 32, 64, etc., but also: 11, 25,

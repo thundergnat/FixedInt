@@ -20,20 +20,20 @@ is(foo.oct, "0o201", '8 bit octal IntStr ok');
 is(foo.hex, "0x81", '8 bit hex IntStr ok');
 
 
-my \bar = FixedInt.new(:19bit);
+constant term:<$bar> = FixedInt.new(:19bit);
 
-is(bar -= 1, 524287, '19 bit negative ok');
-is(bar.signed, -1, '19 bit signed ok');
-bar += 15;
-is(bar.=ror(2), 262147, '19 bit rotate right ok');
-is(bar.=rol(6), 224, '19 bit rotate left ok');
-is(bar +>= 2, 56, '19 bit bit shift right ok');
-is(bar +<= 4, 896, '19 bit bit shift left ok');
-is(bar.=C1, 523391, '19 bit ones complement ok');
-is(bar.C2, 897, '19 bit twos complement ok');
-is(bar.signed, -897, '19 bit signed ok');
-is(bar.bin, "0b1111111110001111111", '19 bit binary IntStr ok');
-is(bar.oct, "0o1776177", '19 bit octal IntStr ok');
-is(bar.hex, "0x7FC7F", '19 bit hex IntStr ok');
+is($bar -= 1, 524287, '19 bit negative ok');
+is($bar.signed, -1, '19 bit signed ok');
+$bar += 15;
+is($bar.=ror(2), 262147, '19 bit rotate right ok');
+is($bar.=rol(6), 224, '19 bit rotate left ok');
+is($bar +>= 2, 56, '19 bit bit shift right ok');
+is($bar +<= 4, 896, '19 bit bit shift left ok');
+is($bar.=C1, 523391, '19 bit ones complement ok');
+is($bar.C2, 897, '19 bit twos complement ok');
+is($bar.signed, -897, '19 bit signed ok');
+is($bar.bin, "0b1111111110001111111", '19 bit binary IntStr ok');
+is($bar.oct, "0o1776177", '19 bit octal IntStr ok');
+is($bar.hex, "0x7FC7F", '19 bit hex IntStr ok');
 
 done-testing;

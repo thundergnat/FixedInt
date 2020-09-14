@@ -1,5 +1,8 @@
 Revision history for FixedInt
 
+0.0.3  - Add some documentation regarding assigning to a constant term
+         rather than an unsigiled container. Test constant term.  
+
 0.0.2  - Fix error possibly returning too many digits for .oct and .hex
          bump version 
 

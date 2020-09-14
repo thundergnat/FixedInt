@@ -37,7 +37,17 @@ Raku $ sigiled scalar variables do not implement a STORE method, but instead do 
 
 An implication of that is that classes that **do** implement a STORE method can not be held in a $ sigiled variable. (Well, they **can**, they just won't work correctly. The first time you try to store a new value, the entire class instance will be overwritten and disappear.)
 
-The only way to instantiate a class in a scalar that won't get overwritten when STOREed to is to use an unsigiled variable.
+There are two work-arounds. One is to use an unsigiled variable. Unsigiled variables have no preconception of what may or may not be allowed, so don't override a STORE method. They work well, but if you really want a $ sigiled container, your only real option is to fake it using a constant term (rather than a variable.)
+
+```raku
+my \int32 = FixedInt.new; # unsigiled constant
+
+# or
+
+constant term:<$int32> = FixedInt.new; # "sigiled" constant term
+
+# looks like a variable but is really a constant term
+```
 
 The FixedInt module allows creating and working with **any** sized fixed size Integer. Not only the "standard" sizes: 8, 16, 32, 64, etc., but also: 11, 25, 103, whatever. Once instantiated, it can be treated like any other variable. You can add to it, subtract from it, multiply, divide, whatever; the value stored in the variable will always stay the specified bit size. Any excesses will "roll over" the value. Works correctly for any standard bitwise or arithmatic operator, though you must remember to assign to the variable to get the fixed sized properties.
 
