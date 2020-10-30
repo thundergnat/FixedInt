@@ -1,4 +1,4 @@
-unit class FixedInt:ver<0.0.3>:auth<github:thundergnat>;
+unit class FixedInt:ver<0.0.4>:auth<github:thundergnat>;
 has $!var handles <Str FETCH Numeric gist> = 0;
 has $!bits;
 has $!mask;
@@ -8,10 +8,10 @@ submethod BUILD (Int :bits(:$bit) = 32) { $!bits = $bit; $!mask = 2**$!bits - 1 
 method STORE ($val) { $!var = $val +& $!mask }
 
 # rotate right
-method ror (Int $bits) { $!var +> $bits +| ($!var +& (2**$bits - 1) +< ($!bits - $bits)) }
+method ror (Int $bits = 1) { $!var +> $bits +| ($!var +& $!mask +< ($!bits - $bits)) }
 
 # rotate left
-method rol (Int $bits) { (($!var +< $bits) +& $!mask ) +| ($!var +> ($!bits - $bits)) }
+method rol (Int $bits = 1) { (($!var +< $bits) +& $!mask ) +| ($!var +> ($!bits - $bits)) }
 
 # ones complement
 method C1 { $!mask +^ $!var }
@@ -69,7 +69,7 @@ say fixedint.hex;     # 0xB8
 
 =head1 DESCRIPTION
 
-FixedInt provides an easy way to work with fixed-sized unsigned integer in Raku.
+FixedInt provides an easy way to work with fixed-sized unsigned integers in Raku.
 Rakus Integers by default are unfixed, arbitrary size. Doing unsigned fixed-size
 bitwise operations requires a bunch of extra bookkeeping. This module hides that
 bookkeeping behind an interface.
@@ -122,14 +122,14 @@ useful for display but also directly usable as an integer value.
 =head2 Methods
 
 Note that most of the method examples below show binary representations of the
-value, that is just for demonstration purposes, returns decimal numbers by
-default.  All of the method examples below assume an 8 bit fixedint.
+value. That's just for demonstration purposes. Returns decimal numbers by
+default. All of the method examples below assume an 8 bit fixedint.
 
 
 =head3 .new()
 
-Specify the number of bits. May be any positive integer. Defaults to 32. Accepts
-:bit or :bits. Defaults to 0; will not accept a Nil value.
+Specify the number of bits. May be any positive integer. Defaults to 32 bit.
+Accepts :bit or :bits. Defaults to value of 0; will not accept a Nil value.
 
 =begin code :lang<raku>
     my \fixedint = FixedInt.new(:8bit);
@@ -146,7 +146,7 @@ Specify the number of bits. May be any positive integer. Defaults to 32. Accepts
 
 =head3 .ror (Int $bits)
 
-Rotate right by the given number of bits
+Rotate right by the given number of bits (default 1)
 =begin code :lang<raku>
     # before 00000011 (3)
     fixedint.=ror(1);
@@ -155,7 +155,7 @@ Rotate right by the given number of bits
 
 =head3 .rol (Int $bits)
 
-Rotate left by the given number of bits
+Rotate left by the given number of bits (default 1)
 
 =begin code :lang<raku>
     # before 10000001 (129)
@@ -206,7 +206,7 @@ Returns a binary formatted IntStr;
 Returns a octal formatted IntStr;
 =begin code :lang<raku>
     say fixedint     # 244
-    say fixedint.oct # 0o0364
+    say fixedint.oct # 0o364
 =end code
 
 =head3 .hex

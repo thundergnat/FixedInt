@@ -1,7 +1,7 @@
 {
     "perl"          : "6",
     "name"          : "FixedInt",
-    "version"       : "0.0.3",
+    "version"       : "0.0.4",
     "description"   : "Fixed size unsigned integers",
     "authors"       : [ "Steve Schulze (thundergnat)" ],
     "provides"      : { "FixedInt" : "lib/FixedInt.rakumod" },

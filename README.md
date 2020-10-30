@@ -29,7 +29,7 @@ say fixedint.hex;     # 0xB8
 DESCRIPTION
 ===========
 
-FixedInt provides an easy way to work with fixed-sized unsigned integer in Raku. Rakus Integers by default are unfixed, arbitrary size. Doing unsigned fixed-size bitwise operations requires a bunch of extra bookkeeping. This module hides that bookkeeping behind an interface.
+FixedInt provides an easy way to work with fixed-sized unsigned integers in Raku. Rakus Integers by default are unfixed, arbitrary size. Doing unsigned fixed-size bitwise operations requires a bunch of extra bookkeeping. This module hides that bookkeeping behind an interface.
 
 One major caveat to be aware of when using this module. The class instance **may not** be instantiated in a $ sigiled variable.
 
@@ -56,11 +56,11 @@ Provides some bit-wise operators that don't make sense for non-fixed size intege
 Methods
 -------
 
-Note that most of the method examples below show binary representations of the value, that is just for demonstration purposes, returns decimal numbers by default. All of the method examples below assume an 8 bit fixedint.
+Note that most of the method examples below show binary representations of the value. That's just for demonstration purposes. Returns decimal numbers by default. All of the method examples below assume an 8 bit fixedint.
 
 ### .new()
 
-Specify the number of bits. May be any positive integer. Defaults to 32. Accepts :bit or :bits. Defaults to 0; will not accept a Nil value.
+Specify the number of bits. May be any positive integer. Defaults to 32 bit. Accepts :bit or :bits. Defaults to value of 0; will not accept a Nil value.
 
 ```raku
     my \fixedint = FixedInt.new(:8bit);
@@ -76,7 +76,7 @@ Specify the number of bits. May be any positive integer. Defaults to 32. Accepts
 
 ### .ror (Int $bits)
 
-Rotate right by the given number of bits
+Rotate right by the given number of bits (default 1)
 
 ```raku
     # before 00000011 (3)
@@ -86,7 +86,7 @@ Rotate right by the given number of bits
 
 ### .rol (Int $bits)
 
-Rotate left by the given number of bits
+Rotate left by the given number of bits (default 1)
 
 ```raku
     # before 10000001 (129)
@@ -138,7 +138,7 @@ Returns a octal formatted IntStr;
 
 ```raku
     say fixedint     # 244
-    say fixedint.oct # 0o0364
+    say fixedint.oct # 0o364
 ```
 
 ### .hex

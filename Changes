@@ -1,5 +1,8 @@
 Revision history for FixedInt
 
+0.0.4  - Add a default 1 to the rotate functions. Fix some typos and
+         clarify a few things in docs.
+
 0.0.3  - Add some documentation regarding assigning to a constant term
          rather than an unsigiled container. Test constant term.  
 
