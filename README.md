@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/thundergnat/FixedInt/actions/workflows/test.yml/badge.svg)](https://github.com/thundergnat/FixedInt/actions)
+
 NAME
 ====
 
@@ -61,15 +63,15 @@ Note that most of the method examples below show binary representations of the v
 Specify the number of bits. May be any positive integer. Defaults to 32 bit. Accepts :bit or :bits. Defaults to value of 0; will not accept a Nil value.
 
 ```raku
-    my \fixedint = FixedInt.new(:8bit);
+my \fixedint = FixedInt.new(:8bit);
 
-    # or
+# or
 
-    my \fixedint = FixedInt.new(:bits(8));
+my \fixedint = FixedInt.new(:bits(8));
 
-    # or
+# or
 
-    my \fixedint = FixedInt.new(bits => 8);
+my \fixedint = FixedInt.new(bits => 8);
 ```
 
 ### .ror (Int $bits)
@@ -77,9 +79,9 @@ Specify the number of bits. May be any positive integer. Defaults to 32 bit. Acc
 Rotate right by the given number of bits (default 1)
 
 ```raku
-    # before 00000011 (3)
-    fixedint.=ror(1);
-    # after 10000001  (129)
+# before 00000011 (3)
+fixedint.=ror(1);
+# after 10000001  (129)
 ```
 
 ### .rol (Int $bits)
@@ -87,9 +89,9 @@ Rotate right by the given number of bits (default 1)
 Rotate left by the given number of bits (default 1)
 
 ```raku
-    # before 10000001 (129)
-    fixedint.=rol(3);
-    # after 00001100 (12)
+# before 10000001 (129)
+fixedint.=rol(3);
+# after 00001100 (12)
 ```
 
 ### .C1
@@ -97,9 +99,9 @@ Rotate left by the given number of bits (default 1)
 Ones complement. Every bit is negated.
 
 ```raku
-    # before 00001100 (12)
-    fixedint.=C1;
-    # after 11110011  (243)
+# before 00001100 (12)
+fixedint.=C1;
+# after 11110011  (243)
 ```
 
 ### .C2
@@ -107,9 +109,9 @@ Ones complement. Every bit is negated.
 Twos complement. A "negated" integer.
 
 ```raku
-    # before 00001100 (12)
-    fixedint.=C2;
-    # after 11110100 (244)
+# before 00001100 (12)
+fixedint.=C2;
+# after 11110100 (244)
 ```
 
 ### .signed
@@ -117,8 +119,8 @@ Twos complement. A "negated" integer.
 Treats the fixed size unsigned integer as a signed integer, returns negative numbers for FixedInts with a set most significant bit.
 
 ```raku
-    say fixedint        # 244
-    say fixedint.signed # -12
+say fixedint        # 244
+say fixedint.signed # -12
 ```
 
 ### .bin
@@ -126,8 +128,8 @@ Treats the fixed size unsigned integer as a signed integer, returns negative num
 Returns a binary formatted IntStr;
 
 ```raku
-    say fixedint     # 244
-    say fixedint.bin # 0b11110100
+say fixedint     # 244
+say fixedint.bin # 0b11110100
 ```
 
 ### .oct
@@ -135,8 +137,8 @@ Returns a binary formatted IntStr;
 Returns a octal formatted IntStr;
 
 ```raku
-    say fixedint     # 244
-    say fixedint.oct # 0o364
+say fixedint     # 244
+say fixedint.oct # 0o364
 ```
 
 ### .hex
@@ -144,8 +146,8 @@ Returns a octal formatted IntStr;
 Returns a hex formatted IntStr;
 
 ```raku
-    say fixedint     # 244
-    say fixedint.hex # 0xF4
+say fixedint     # 244
+say fixedint.hex # 0xF4
 ```
 
 AUTHOR

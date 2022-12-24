@@ -130,15 +130,15 @@ Specify the number of bits. May be any positive integer. Defaults to 32 bit.
 Accepts :bit or :bits. Defaults to value of 0; will not accept a Nil value.
 
 =begin code :lang<raku>
-    my \fixedint = FixedInt.new(:8bit);
+my \fixedint = FixedInt.new(:8bit);
 
-    # or
+# or
 
-    my \fixedint = FixedInt.new(:bits(8));
+my \fixedint = FixedInt.new(:bits(8));
 
-    # or
+# or
 
-    my \fixedint = FixedInt.new(bits => 8);
+my \fixedint = FixedInt.new(bits => 8);
 =end code
 
 
@@ -146,9 +146,9 @@ Accepts :bit or :bits. Defaults to value of 0; will not accept a Nil value.
 
 Rotate right by the given number of bits (default 1)
 =begin code :lang<raku>
-    # before 00000011 (3)
-    fixedint.=ror(1);
-    # after 10000001  (129)
+# before 00000011 (3)
+fixedint.=ror(1);
+# after 10000001  (129)
 =end code
 
 =head3 .rol (Int $bits)
@@ -156,9 +156,9 @@ Rotate right by the given number of bits (default 1)
 Rotate left by the given number of bits (default 1)
 
 =begin code :lang<raku>
-    # before 10000001 (129)
-    fixedint.=rol(3);
-    # after 00001100 (12)
+# before 10000001 (129)
+fixedint.=rol(3);
+# after 00001100 (12)
 =end code
 
 =head3 .C1
@@ -166,9 +166,9 @@ Rotate left by the given number of bits (default 1)
 Ones complement. Every bit is negated.
 
 =begin code :lang<raku>
-    # before 00001100 (12)
-    fixedint.=C1;
-    # after 11110011  (243)
+# before 00001100 (12)
+fixedint.=C1;
+# after 11110011  (243)
 =end code
 
 =head3 .C2
@@ -176,9 +176,9 @@ Ones complement. Every bit is negated.
 Twos complement. A "negated" integer.
 
 =begin code :lang<raku>
-    # before 00001100 (12)
-    fixedint.=C2;
-    # after 11110100 (244)
+# before 00001100 (12)
+fixedint.=C2;
+# after 11110100 (244)
 =end code
 
 =head3 .signed
@@ -187,34 +187,33 @@ Treats the fixed size unsigned integer as a signed integer, returns negative
 numbers for FixedInts with a set most significant bit.
 
 =begin code :lang<raku>
-    say fixedint        # 244
-    say fixedint.signed # -12
+say fixedint        # 244
+say fixedint.signed # -12
 =end code
 
 =head3 .bin
 
 Returns a binary formatted IntStr;
 =begin code :lang<raku>
-    say fixedint     # 244
-    say fixedint.bin # 0b11110100
+say fixedint     # 244
+say fixedint.bin # 0b11110100
 =end code
 
 =head3 .oct
 
 Returns a octal formatted IntStr;
 =begin code :lang<raku>
-    say fixedint     # 244
-    say fixedint.oct # 0o364
+say fixedint     # 244
+say fixedint.oct # 0o364
 =end code
 
 =head3 .hex
 
 Returns a hex formatted IntStr;
 =begin code :lang<raku>
-    say fixedint     # 244
-    say fixedint.hex # 0xF4
+say fixedint     # 244
+say fixedint.hex # 0xF4
 =end code
-
 
 
 =head1 AUTHOR
