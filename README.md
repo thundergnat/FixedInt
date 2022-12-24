@@ -3,8 +3,6 @@ NAME
 
 FixedInt - Unsigned fixed sized Integers
 
-[![Build Status](https://travis-ci.org/thundergnat/FixedInt.svg?branch=master)](https://travis-ci.org/thundergnat/FixedInt)
-
 SYNOPSIS
 ========
 

@@ -1,4 +1,4 @@
-unit class FixedInt:ver<0.0.4>:auth<github:thundergnat>;
+unit class FixedInt:ver<0.0.5>:auth<zef:thundergnat>;
 has $!var handles <Str FETCH Numeric gist> = 0;
 has $!bits;
 has $!mask;
@@ -42,8 +42,6 @@ method hex { "0x{$!var.Str.fmt('%0' ~ ceiling($!bits / 4) ~ 'X')}" }
 =head1 NAME
 
 FixedInt - Unsigned fixed sized Integers
-
-[![Build Status](https://travis-ci.org/thundergnat/FixedInt.svg?branch=master)](https://travis-ci.org/thundergnat/FixedInt)
 
 =head1 SYNOPSIS
 
