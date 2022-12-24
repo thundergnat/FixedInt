@@ -1,6 +1,8 @@
 Revision history for FixedInt
 
 {{$NEXT}}
+
+0.0.5  2022-12-24T10:51:39-05:00
     - Migrate to fez ecosystem
 
 0.0.4  - Add a default 1 to the rotate functions. Fix some typos and
